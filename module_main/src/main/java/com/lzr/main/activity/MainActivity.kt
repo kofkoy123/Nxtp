@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
 
     private var pressTime: Long = 0
 
-    private var mHomeFragment: HomeFragment = HomeFragment()
-    private var mHomeFragment1: HomeFragment = HomeFragment()
-    private var mHomeFragment2: HomeFragment = HomeFragment()
-    private var mHomeFragment3: HomeFragment = HomeFragment()
-    private var mMineFragment: MineFragment = MineFragment()
+    private val mHomeFragment: HomeFragment = HomeFragment()
+    private val mHomeFragment1: HomeFragment = HomeFragment()
+    private val mHomeFragment2: HomeFragment = HomeFragment()
+    private val mHomeFragment3: HomeFragment = HomeFragment()
+    private val mMineFragment: MineFragment = MineFragment()
 
-    private var mFragmentList = Stack<Fragment>()
+    private val mFragmentList = Stack<Fragment>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,23 +42,32 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("lzr", "name==$name")
 
+
+        var b:String? = null
+        Log.e("lzr", "b的值==${b?.length}")
+
     }
 
 
     private fun initFragment() {
-        var transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.mContaier, mHomeFragment)
-        transaction.add(R.id.mContaier, mHomeFragment1)
-        transaction.add(R.id.mContaier, mHomeFragment2)
-        transaction.add(R.id.mContaier, mHomeFragment3)
-        transaction.add(R.id.mContaier, mMineFragment)
-        transaction.commit()
-
         mFragmentList.add(mHomeFragment)
         mFragmentList.add(mHomeFragment1)
         mFragmentList.add(mHomeFragment2)
         mFragmentList.add(mHomeFragment3)
         mFragmentList.add(mMineFragment)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.mContainer, mHomeFragment)
+        transaction.add(R.id.mContainer, mHomeFragment1)
+        transaction.add(R.id.mContainer, mHomeFragment2)
+        transaction.add(R.id.mContainer, mHomeFragment3)
+        transaction.add(R.id.mContainer, mMineFragment)
+
+        for (fragment in mFragmentList){
+            transaction.hide(fragment)
+        }
+        transaction.show(mHomeFragment)
+        transaction.commit()
 
     }
 
@@ -76,7 +85,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
         mBottomNavBar.checkMsgBadge(false)
-
+        mBottomNavBar.checkCartBadge(0)
     }
 
     private fun changeFragment(position: Int) {
