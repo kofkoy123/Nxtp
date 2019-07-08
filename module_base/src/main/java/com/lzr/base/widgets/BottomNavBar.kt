@@ -28,23 +28,23 @@ class BottomNavBar @JvmOverloads constructor(
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
 
-        //分类
-        val categoryItem = BottomNavigationItem(R.drawable.btn_nav_category_press,resources.getString(R.string.nav_bar_category))
+        //菜单
+        val categoryItem = BottomNavigationItem(R.drawable.btn_nav_category_press,resources.getString(R.string.nav_bar_menu))
                 .setInactiveIconResource(R.drawable.btn_nav_category_normal)
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
 
-        //购物车
-        val cartItem = BottomNavigationItem(R.drawable.btn_nav_cart_press,resources.getString(R.string.nav_bar_cart))
+        //订单
+        val cartItem = BottomNavigationItem(R.drawable.btn_nav_cart_press,resources.getString(R.string.nav_bar_order))
                 .setInactiveIconResource(R.drawable.btn_nav_cart_normal)
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
 
         mCartBadge = TextBadgeItem()
         cartItem.setBadgeItem(mCartBadge)
-
-        //消息
-        val msgItem = BottomNavigationItem(R.drawable.btn_nav_msg_press,resources.getString(R.string.nav_bar_msg))
+        mCartBadge.hide()
+        //购物车
+        val msgItem = BottomNavigationItem(R.drawable.btn_nav_msg_press,resources.getString(R.string.nav_bar_cart))
                 .setInactiveIconResource(R.drawable.btn_nav_msg_normal)
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)
@@ -52,9 +52,9 @@ class BottomNavBar @JvmOverloads constructor(
         mMsgBadge = ShapeBadgeItem()
         mMsgBadge.setShape(ShapeBadgeItem.SHAPE_OVAL)
         msgItem.setBadgeItem(mMsgBadge)
-
+        mMsgBadge.hide()
         //我的
-        val userItem = BottomNavigationItem(R.drawable.btn_nav_user_press,resources.getString(R.string.nav_bar_user))
+        val userItem = BottomNavigationItem(R.drawable.btn_nav_user_press,resources.getString(R.string.nav_bar_mine))
                 .setInactiveIconResource(R.drawable.btn_nav_user_normal)
                 .setActiveColorResource(R.color.common_blue)
                 .setInActiveColorResource(R.color.text_normal)

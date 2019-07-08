@@ -35,7 +35,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //基础module
-    implementation project(path: ':module_base')
     implementation project(path: ':module_main')
 
 }

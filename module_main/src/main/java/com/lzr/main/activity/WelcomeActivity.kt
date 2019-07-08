@@ -17,7 +17,7 @@ class WelcomeActivity : BaseActivity() {
         Handler().postDelayed(Runnable {
             ARouter.getInstance().build(ArouterConstant.ACTIVITY_PATH_LOGIN).navigation()
             finish()
-        }, 2000)
+        }, 1000)
     }
 
 

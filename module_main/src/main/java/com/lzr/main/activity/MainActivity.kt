@@ -10,8 +10,11 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.lzr.base.common.AppManager
 import com.lzr.base.common.ArouterConstant
+import com.lzr.cart.fragment.CartFragment
 import com.lzr.main.R
 import com.lzr.main.fragment.HomeFragment
+import com.lzr.menu.fragment.MenuFragment
+import com.lzr.order.fragment.OrderFragment
 import com.lzr.user.fragment.MineFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
@@ -26,9 +29,9 @@ class MainActivity : AppCompatActivity() {
     private var pressTime: Long = 0
 
     private val mHomeFragment: HomeFragment = HomeFragment()
-    private val mHomeFragment1: HomeFragment = HomeFragment()
-    private val mHomeFragment2: HomeFragment = HomeFragment()
-    private val mHomeFragment3: HomeFragment = HomeFragment()
+    private val mMenuFragment: MenuFragment = MenuFragment()
+    private val mOrderFragment: OrderFragment = OrderFragment()
+    private val mCartFragment: CartFragment = CartFragment()
     private val mMineFragment: MineFragment = MineFragment()
 
     private val mFragmentList = Stack<Fragment>()
@@ -42,33 +45,30 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("lzr", "name==$name")
 
-
-        var b:String? = null
+        var b: String? = null
         Log.e("lzr", "b的值==${b?.length}")
-
     }
 
 
     private fun initFragment() {
         mFragmentList.add(mHomeFragment)
-        mFragmentList.add(mHomeFragment1)
-        mFragmentList.add(mHomeFragment2)
-        mFragmentList.add(mHomeFragment3)
+        mFragmentList.add(mMenuFragment)
+        mFragmentList.add(mOrderFragment)
+        mFragmentList.add(mCartFragment)
         mFragmentList.add(mMineFragment)
 
         val transaction = supportFragmentManager.beginTransaction()
         transaction.add(R.id.mContainer, mHomeFragment)
-        transaction.add(R.id.mContainer, mHomeFragment1)
-        transaction.add(R.id.mContainer, mHomeFragment2)
-        transaction.add(R.id.mContainer, mHomeFragment3)
+        transaction.add(R.id.mContainer, mMenuFragment)
+        transaction.add(R.id.mContainer, mOrderFragment)
+        transaction.add(R.id.mContainer, mCartFragment)
         transaction.add(R.id.mContainer, mMineFragment)
 
-        for (fragment in mFragmentList){
+        for (fragment in mFragmentList) {
             transaction.hide(fragment)
         }
         transaction.show(mHomeFragment)
         transaction.commit()
-
     }
 
 
@@ -101,14 +101,15 @@ class MainActivity : AppCompatActivity() {
      * 双击返回键退出APP
      */
     override fun onBackPressed() {
-        super.onBackPressed()
         var currentTime = System.currentTimeMillis()
         if (currentTime - pressTime > 2000) {
             toast("再按一次退出APP")
             pressTime = currentTime
         } else {
+            super.onBackPressed()
             AppManager.instance.exitApp(this)
         }
 
     }
+
 }
