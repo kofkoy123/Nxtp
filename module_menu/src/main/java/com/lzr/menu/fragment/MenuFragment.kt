@@ -15,7 +15,6 @@ import com.lzr.menu.bean.MenuType
 import com.youth.banner.BannerConfig
 import com.youth.banner.Transformer
 import kotlinx.android.synthetic.main.fragment_menu.*
-import org.jetbrains.anko.support.v4.toast
 
 /**
  * 作者： 10302
@@ -61,11 +60,15 @@ class MenuFragment : BaseFragment() {
 
     private fun setTypeListAdapter() {
 
-        mTypes.add(MenuType("食品",true))
-        mTypes.add(MenuType("蛋糕",false))
-        mTypes.add(MenuType("奶茶",false))
-        mTypes.add(MenuType("食品",false))
-        mTypes.add(MenuType("食品",false))
+        mTypes.add(MenuType("人气Top",true))
+        mTypes.add(MenuType("大师咖啡",false))
+        mTypes.add(MenuType("小鹿茶",false))
+        mTypes.add(MenuType("瑞纳冰",false))
+        mTypes.add(MenuType("鲜榨果蔬汁",false))
+        mTypes.add(MenuType("经典饮品",false))
+        mTypes.add(MenuType("BOSS午餐",false))
+        mTypes.add(MenuType("健康轻餐",false))
+        mTypes.add(MenuType("幸运小食",false))
 
         mGoodsTypeList.layoutManager = LinearLayoutManager(context)
 
@@ -75,7 +78,12 @@ class MenuFragment : BaseFragment() {
         mMenuAdapter.setOnItemClickListener(object : BaseRecyclerViewAdapter.OnItemClickListener<MenuType> {
 
             override fun onItemClick(item: MenuType, position: Int) {
-                toast(item.name)
+                for (type in mTypes){
+                    type.isSelected = false
+                }
+                item.isSelected = true
+
+                mMenuAdapter.notifyDataSetChanged()
             }
         })
     }

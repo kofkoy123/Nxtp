@@ -4,8 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.lzr.base.R
 import com.lzr.base.ext.onClick
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.layout_header_bar.view.*
  */
 class HeaderBar @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : FrameLayout(context, attrs, defStyleAttr) {
+) : RelativeLayout(context, attrs, defStyleAttr) {
 
     //是否显示"返回"图标
     private var isShowBack = true

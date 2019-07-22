@@ -44,7 +44,7 @@ dependencies {
     api 'androidx.core:core-ktx:1.0.2'
     api 'androidx.recyclerview:recyclerview:1.0.0'
     api 'androidx.multidex:multidex:2.0.1'
-
+    api 'com.google.android.material:material:1.0.0'
     //kt
     api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     // Anko Commons
@@ -95,9 +95,6 @@ dependencies {
     //Alert View
     api "com.bigkoo:alertview:1.0.3"
 
-    //底部导航
-    api 'com.ashokvarma.android:bottom-navigation-bar:2.1.0'
-
     //Banner
     api 'com.youth.banner:banner:1.4.10'
 
@@ -107,4 +104,11 @@ dependencies {
     //安卓屏幕适配
     api 'me.jessyan:autosize:1.1.2'
 
+    //1.1.0 androidx 版本SmartRefreshLayout
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-andx-13'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-andx-13'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    //底部导航栏
+    api 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
 }

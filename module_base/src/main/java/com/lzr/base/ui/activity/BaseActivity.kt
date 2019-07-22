@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import com.lzr.base.common.AppManager
+import com.lzr.base.utils.StatusBarUtil
 import com.trello.rxlifecycle3.components.support.RxAppCompatActivity
 import org.jetbrains.anko.find
 
@@ -15,6 +16,9 @@ open class BaseActivity: RxAppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        StatusBarUtil.setTranslucentForImageView(this@BaseActivity,0,null)
+
         AppManager.instance.addActivity(this)
     }
 

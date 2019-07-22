@@ -1,44 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:orientation="vertical"
+<com.lzr.base.widgets.ReboundScrollView
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent">
+
+    <LinearLayout
+          android:orientation="vertical"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+
+        <com.lzr.base.widgets.HeaderBar
+              android:id="@+id/mMenuTitle"
+              app:titleText="菜单"
+              app:rightText=""
+              app:isShowBack="false"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+
+
+        <com.youth.banner.Banner
+              android:id="@+id/mBanner"
+              android:layout_width="match_parent"
+              android:layout_height="150dp"/>
+
+
+        <LinearLayout
+              android:orientation="horizontal"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
 
-    <com.lzr.base.widgets.HeaderBar
-            android:id="@+id/mMenuTitle"
-            app:titleText="菜单"
-            app:rightText=""
-            app:isShowBack="false"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/mGoodsTypeList"
+                  android:layout_width="100dp"
+                  android:background="@color/menu_first_list_background"
+                  android:layout_height="match_parent"/>
 
 
-    <com.youth.banner.Banner
-            android:id="@+id/mBanner"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
+            <androidx.recyclerview.widget.RecyclerView
+                  android:id="@+id/mDetailList"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"/>
 
-
-    <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mGoodsTypeList"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"/>
-
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mDetailList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
     </LinearLayout>
-
-
-</LinearLayout>
+</com.lzr.base.widgets.ReboundScrollView>

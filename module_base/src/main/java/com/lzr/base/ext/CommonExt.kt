@@ -1,10 +1,15 @@
 package com.lzr.base.ext
 
+import android.content.Context
+import android.graphics.Point
 import android.graphics.drawable.AnimationDrawable
+import android.os.Build
 import android.view.View
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import com.kennyc.view.MultiStateView
 import com.lzr.base.R
 import com.lzr.base.data.protocol.BaseResp
@@ -97,3 +102,58 @@ fun MultiStateView.startLoading(){
 fun View.setVisible(visible:Boolean){
     this.visibility = if (visible) View.VISIBLE else View.GONE
 }
+
+
+//----------尺寸转换----------
+
+fun Context.dp2px(dpValue: Float): Int {
+    val scale = resources.displayMetrics.density
+    return (dpValue * scale + 0.5f).toInt()
+}
+
+fun Context.px2dp(pxValue: Float): Int {
+    val scale = resources.displayMetrics.density
+    return (pxValue / scale + 0.5f).toInt()
+}
+
+fun Context.sp2px(spValue: Float): Int {
+    val scale = resources.displayMetrics.scaledDensity
+    return (spValue * scale + 0.5f).toInt()
+}
+
+fun Context.px2sp(pxValue: Float): Int {
+    val scale = resources.displayMetrics.scaledDensity
+    return (pxValue / scale + 0.5f).toInt()
+}
+
+//----------屏幕尺寸----------
+
+fun Context.getScreenWidth(): Int {
+    var wm: WindowManager = this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        ?: return resources.displayMetrics.widthPixels
+    var point = Point()
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        wm.defaultDisplay.getRealSize(point)
+    } else {
+        wm.defaultDisplay.getSize(point)
+    }
+    return point.x
+}
+
+fun Context.getScreenHeight(): Int {
+    var wm: WindowManager = this.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        ?: return resources.displayMetrics.heightPixels
+    var point = Point()
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+        wm.defaultDisplay.getRealSize(point)
+    } else {
+        wm.defaultDisplay.getSize(point)
+    }
+    return point.y
+}
+
+
+fun Context.getColorExt(colorInt:Int):Int{
+    return ContextCompat.getColor(this,colorInt)
+}
+

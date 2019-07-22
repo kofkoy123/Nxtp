@@ -1,94 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<com.lzr.base.widgets.ReboundScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
 
-    <com.youth.banner.Banner
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <com.youth.banner.Banner
             android:id="@+id/mBanner"
             android:layout_width="match_parent"
             android:layout_height="180dp"/>
 
-    <LinearLayout style="@style/MenuItem">
+        <LinearLayout style="@style/MenuItem">
 
 
-        <TextView
+            <TextView
                 android:gravity="center_vertical"
                 android:text="现在下单"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
-        <ImageView
+            <ImageView
                 android:scaleType="centerInside"
                 android:src="@drawable/btn_nav_category_normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <View style="@style/ItemLine"/>
+        <View style="@style/ItemLine"/>
 
-    <LinearLayout style="@style/MenuItem">
+        <LinearLayout style="@style/MenuItem">
 
-        <TextView
+            <TextView
                 android:gravity="center_vertical"
                 android:text="现在下单"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
-        <ImageView
+            <ImageView
                 android:scaleType="centerInside"
                 android:src="@drawable/btn_nav_category_normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <View style="@style/ItemLine"/>
-
-
-    <LinearLayout style="@style/MenuItem">
+        <View style="@style/ItemLine"/>
 
 
-        <TextView
+        <LinearLayout style="@style/MenuItem">
+
+
+            <TextView
                 android:gravity="center_vertical"
                 android:text="现在下单"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
-        <ImageView
+            <ImageView
                 android:scaleType="centerInside"
                 android:src="@drawable/btn_nav_category_normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <View style="@style/ItemLine"/>
-
-
-    <LinearLayout style="@style/MenuItem">
+        <View style="@style/ItemLine"/>
 
 
-        <TextView
+        <LinearLayout style="@style/MenuItem">
+
+
+            <TextView
                 android:gravity="center_vertical"
                 android:text="现在下单"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
 
-        <ImageView
+            <ImageView
                 android:scaleType="centerInside"
                 android:src="@drawable/btn_nav_category_normal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
+        </LinearLayout>
+
+        <View style="@style/ItemLine"/>
     </LinearLayout>
-
-    <View style="@style/ItemLine"/>
-
-</LinearLayout>
+</com.lzr.base.widgets.ReboundScrollView>

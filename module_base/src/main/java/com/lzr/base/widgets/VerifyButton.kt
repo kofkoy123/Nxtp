@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Handler
 import android.util.AttributeSet
 import android.widget.Button
+import androidx.core.content.ContextCompat
 
 import com.lzr.base.R
 
@@ -11,15 +12,16 @@ import com.lzr.base.R
     获取验证码按钮
     带倒计时
  */
-class VerifyButton(mContext: Context, attrs: AttributeSet) : Button(mContext, attrs) {
+class VerifyButton(context: Context, attrs: AttributeSet) : Button(context, attrs) {
     private val mHandler: Handler
     private var mCount = 60
     private var mOnVerifyBtnClick: OnVerifyBtnClick? = null
+    private val mContext: Context
 
     init {
         this.text = "获取验证码"
         mHandler = Handler()
-
+        this.mContext = context
     }
 
     /*
@@ -30,7 +32,6 @@ class VerifyButton(mContext: Context, attrs: AttributeSet) : Button(mContext, at
         if (mOnVerifyBtnClick != null) {
             mOnVerifyBtnClick!!.onClick()
         }
-
     }
 
     /*
@@ -39,8 +40,8 @@ class VerifyButton(mContext: Context, attrs: AttributeSet) : Button(mContext, at
     private val countDown = object : Runnable {
         override fun run() {
             this@VerifyButton.text = mCount.toString() + "s "
-            this@VerifyButton.setBackgroundColor(resources.getColor(R.color.common_disable))
-            this@VerifyButton.setTextColor(resources.getColor(R.color.common_white))
+            this@VerifyButton.setBackgroundColor(ContextCompat.getColor(mContext, R.color.common_disable))
+            this@VerifyButton.setTextColor(ContextCompat.getColor(mContext, R.color.common_white))
             this@VerifyButton.isEnabled = false
 
             if (mCount > 0) {
@@ -66,8 +67,8 @@ class VerifyButton(mContext: Context, attrs: AttributeSet) : Button(mContext, at
         } else {
             this.text = "重获验证码"
         }
-        this.setBackgroundColor(resources.getColor(R.color.transparent))
-        this.setTextColor(resources.getColor(R.color.common_blue))
+        this.setBackgroundColor(ContextCompat.getColor(mContext, R.color.transparent))
+        this.setTextColor(ContextCompat.getColor(mContext, R.color.common_blue))
         mCount = 60
     }
 

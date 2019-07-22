@@ -1,19 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/MatchMatch.Vertical"
-        android:gravity="bottom">
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      style="@style/MatchMatch.Vertical"
+      android:background="@android:color/white"
+      android:gravity="bottom">
 
 
     <FrameLayout
-            android:id="@+id/mContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"/>
+          android:id="@+id/mContainer"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_weight="1"/>
 
 
-    <com.lzr.base.widgets.BottomNavBar
-            android:id="@+id/mBottomNavBar"
-            style="@style/MatchWrap"
-            android:layout_gravity="bottom"/>
+    <View
+          android:background="#bbbbbb"
+          android:layout_width="match_parent"
+          android:layout_height="0.5dp"/>
+
+    <com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
+          android:id="@+id/mBottomNavBar"
+          android:layout_width="match_parent"
+          android:layout_height="50dp"
+          app:itemIconTint="@drawable/bottom_navigation_selector"
+          app:itemTextColor="@drawable/bottom_navigation_selector"
+          app:menu="@menu/navigation"
+          android:layout_gravity="bottom"/>
 </LinearLayout>
